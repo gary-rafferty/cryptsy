@@ -1,6 +1,7 @@
 # Cryptsy 
 
 [![Build Status](https://travis-ci.org/gary-rafferty/cryptsy.svg?branch=master)](https://travis-ci.org/gary-rafferty/cryptsy)
+[![Coverage Status](https://coveralls.io/repos/gary-rafferty/cryptsy/badge.svg)](https://coveralls.io/r/gary-rafferty/cryptsy)
 
 ## Installation
 
