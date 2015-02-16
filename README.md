@@ -1,6 +1,6 @@
-# Cryptsy
+# Cryptsy 
 
-Cryptsy v2
+[![Build Status](https://travis-ci.org/gary-rafferty/cryptsy.svg?branch=master)](https://travis-ci.org/gary-rafferty/cryptsy)
 
 ## Installation
 
