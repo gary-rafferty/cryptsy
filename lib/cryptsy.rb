@@ -1,4 +1,6 @@
 require "cryptsy/version"
+require "cryptsy/api_resource"
+require "cryptsy/market"
 require "httparty"
 
 module Cryptsy
@@ -20,6 +22,10 @@ module Cryptsy
   end
 
   def self.get(path)
+    response = HTTParty.get("#{@api_base}#{path}")
+    body = JSON.parse(response.body)
+
+    body['data']
   end
 
   def self.post(path, data)
