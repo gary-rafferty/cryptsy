@@ -25,11 +25,15 @@ Or install it yourself as:
 
 Get all markets
 
-`Cryptsy::Market.all # returns an array of Market objects`
+```ruby
+Cryptsy::Market.all # returns an array of Market objects
+```
 
 Find a single market by id
 
-`Cryptsy::Market.find('326') # returns a single Market object`
+```ruby
+Cryptsy::Market.find('326') # returns a single Market object
+```
 
 ## Contributing
 
