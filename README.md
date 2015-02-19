@@ -21,7 +21,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Markets
+
+Get all markets
+
+```ruby
+Cryptsy::Market.all # returns an array of Market objects
+```
+
+Find a single market by id
+
+```ruby
+Cryptsy::Market.find('326') # returns a single Market object
+```
 
 ## Contributing
 
