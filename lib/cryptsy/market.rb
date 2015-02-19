@@ -15,5 +15,11 @@ module Cryptsy
 
       self.new(response)
     end
+
+    def volume
+      response = Cryptsy.get("/markets/#{@id}/volume")
+
+      Cryptsy::MarketVolume.new(response)
+    end
   end
 end
