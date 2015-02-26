@@ -23,16 +23,44 @@ Or install it yourself as:
 
 ### Markets
 
-Get all markets
-
 ```ruby
+# Get all Markets
 Cryptsy::Market.all # returns an array of Market objects
+
+# Find a single market by id
+market = Cryptsy::Market.find(326) # returns a single Market object
+
+market.instance_variables # [id, label, coin_currency_id, market_currency_id, maintenance_mode, verified_only, _24hr, last_trade]
+
+# Get the market volume
+market.market_volume # returns a MarketVolume object
+
+# Get the market ticker
+market.market_ticker # returns a MarketTicket object
 ```
 
-Find a single market by id
+### MarketVolumes
 
 ```ruby
-Cryptsy::Market.find('326') # returns a single Market object
+# Get all MarketVolumes
+Cryptsy::MarketVolume.all # returns an array of MarketVolume objects
+
+# Find a single market volume by market id
+market_volume = Cryptsy::MarketVolume.find(2)
+
+market_volume.instance_variables # [volume, volume_btc]
+```
+
+### MarketTickers
+
+```ruby
+# Get all MarketTickers
+Cryptsy::MarketTicker.all # returns an array of MarketTicker objects
+
+# Find a single market ticker by market id
+market_ticker = Cryptsy::MarketTicker.find(2)
+
+market_ticker.instance_variables # [bid, ask]
 ```
 
 ## Contributing
