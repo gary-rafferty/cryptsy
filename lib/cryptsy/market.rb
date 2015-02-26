@@ -21,5 +21,11 @@ module Cryptsy
 
       Cryptsy::MarketVolume.new(response)
     end
+
+    def ticker
+      response = Cryptsy.get("/markets/#{@id}/ticker")
+
+      Cryptsy::MarketTicker.new(response)
+    end
   end
 end

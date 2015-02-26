@@ -44,4 +44,20 @@ class MarketSpec < Minitest::Spec
       volume.must_be_instance_of Cryptsy::MarketVolume
     end
   end
+
+  it 'exposes a .ticker() instance method that return a MarketTicker object' do
+    Cryptsy.stubs(:get).returns(
+      {"name" => "Market1","id" => "M1"}, 
+    )
+
+    market = Cryptsy::Market.find('M1')
+
+    Cryptsy.stubs(:get).returns(
+      {id: '2', ticker: '25.0', ask: '25.0'}
+    )
+
+    ticker = market.ticker
+
+    ticker.must_be_instance_of Cryptsy::MarketTicker
+  end
 end
