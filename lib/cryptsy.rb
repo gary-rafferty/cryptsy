@@ -3,6 +3,7 @@ require "cryptsy/api_resource"
 require "cryptsy/market"
 require "cryptsy/market_volume"
 require "cryptsy/market_ticker"
+require "cryptsy/market_orderbook"
 require "httparty"
 
 module Cryptsy

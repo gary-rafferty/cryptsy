@@ -27,5 +27,9 @@ module Cryptsy
 
       Cryptsy::MarketTicker.new(response)
     end
+
+    def orderbook
+      Cryptsy::MarketOrderbook.find(@id)
+    end
   end
 end

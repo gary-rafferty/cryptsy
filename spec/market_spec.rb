@@ -60,4 +60,29 @@ class MarketSpec < Minitest::Spec
 
     ticker.must_be_instance_of Cryptsy::MarketTicker
   end
+
+  it 'exposes a .orderbook() instance method that return a MarketOrderbook object' do
+    Cryptsy.stubs(:get).returns(
+      {"name" => "Market1","id" => "M1"}, 
+    )
+
+    market = Cryptsy::Market.find('M1')
+
+    Cryptsy.stubs(:get).returns(
+      {
+        "buy_orders" => [
+          {"price"=>241.00000227, "quantity"=>0.0002, "total"=>0.0482},
+          {"price"=>241.00000227, "quantity"=>0.0002, "total"=>0.0482} 
+        ],
+        "sell_orders" => [
+          {"price"=>241.00000227, "quantity"=>0.0002, "total"=>0.0482},
+          {"price"=>241.00000227, "quantity"=>0.0002, "total"=>0.0482}
+        ]
+      }
+    )
+
+    orderbook = market.orderbook
+
+    orderbook.must_be_instance_of Cryptsy::MarketOrderbook
+  end
 end
