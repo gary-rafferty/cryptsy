@@ -33,10 +33,13 @@ market = Cryptsy::Market.find(326) # returns a single Market object
 market.instance_variables # [id, label, coin_currency_id, market_currency_id, maintenance_mode, verified_only, _24hr, last_trade]
 
 # Get the market volume
-market.market_volume # returns a MarketVolume object
+market.volume # returns a MarketVolume object
 
 # Get the market ticker
-market.market_ticker # returns a MarketTicket object
+market.ticker # returns a MarketTicket object
+
+# Get the market orderbook
+market.orderbook # returns a MarketOrderbook object
 ```
 
 ### MarketVolumes
@@ -61,6 +64,15 @@ Cryptsy::MarketTicker.all # returns an array of MarketTicker objects
 market_ticker = Cryptsy::MarketTicker.find(2)
 
 market_ticker.instance_variables # [bid, ask]
+```
+
+### MarketOrderbooks
+
+```ruby
+# Find the orderbook for a market
+market_orderbook = Cryptsy::MarketOrderbook.find(2)
+
+market_orderbook.instance_variables # [sellorders, buyorders]
 ```
 
 ## Contributing
