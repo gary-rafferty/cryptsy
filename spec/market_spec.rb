@@ -85,4 +85,22 @@ class MarketSpec < Minitest::Spec
 
     orderbook.must_be_instance_of Cryptsy::MarketOrderbook
   end
+
+  it 'exposes a .ohlc() instance method that return a MarketOhlc object' do
+    Cryptsy.stubs(:get).returns(
+      {"name" => "Market1","id" => "M1"}, 
+    )
+
+    market = Cryptsy::Market.find('M1')
+    Cryptsy.stubs(:get).returns(
+      [
+        {"timestamp" => 1427236560, "date" => "2015-03-24 18:36:00","high" => 7.0e-8,"low" => 7.0e-8,"open" => 7.0e-8,"close" => 7.0e-8,"volume" => 15},
+        {"timestamp" => 1427236560, "date" => "2015-03-24 18:36:00","high" => 7.0e-8,"low" => 7.0e-8,"open" => 7.0e-8,"close" => 7.0e-8,"volume" => 15}
+      ]
+    )
+
+    ohlc = market.ohlc
+
+    ohlc.must_be_instance_of Cryptsy::MarketOhlc
+  end
 end

@@ -31,5 +31,9 @@ module Cryptsy
     def orderbook
       Cryptsy::MarketOrderbook.find(@id)
     end
+
+    def ohlc
+      Cryptsy::MarketOhlc.find(@id)
+    end
   end
 end
