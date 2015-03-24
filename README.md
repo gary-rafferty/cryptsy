@@ -70,9 +70,14 @@ market_ticker.instance_variables # [bid, ask]
 
 ```ruby
 # Find the orderbook for a market
-market_orderbook = Cryptsy::MarketOrderbook.find(2)
+# Available arguments are
+# limit: 1-100 (default 100)
+# type: 'Buy' or 'Sell' or 'Both' (default Both)
+# mine: boolean (default false)
+market_orderbook = Cryptsy::MarketOrderbook.find(2) 
+market_orderbook = Cryptsy::MarkerOrderbook.find(2, limit: 1, type: 'Buy', mine: true)
 
-market_orderbook.instance_variables # [sellorders, buyorders]
+market_orderbook.instance_variables # [sellorders, buyorders] may only be one or the other depending on method arguments
 ```
 
 ## Contributing
