@@ -11,6 +11,10 @@ module Cryptsy
           name = "_#{name}"
         end
 
+        if val.is_a? Float
+          val = "%.8f" % val
+        end
+
         instance_variable_set "@#{name}", val
 
         meta_class.send(:define_method, name) do

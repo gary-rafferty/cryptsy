@@ -8,7 +8,8 @@ class ApiResourceSpec < Minitest::Spec
       attrs = {
         "name" => 'nameval',
         "age" => 'age',
-        "1var" => 'onevar'
+        "1var" => 'onevar',
+        "number" => 7.0e-8
       }
 
       @ar = Cryptsy::ApiResource.new(attrs)
@@ -24,6 +25,11 @@ class ApiResourceSpec < Minitest::Spec
 
     it 'prefix numeric identifiers with an underscore' do
       @ar.must_respond_to "_1var"
+    end
+
+    it 'should convert scientific notation to decimals for numbers' do
+      decimal = "%.8f" % 7.0e-8
+      @ar.number.must_equal decimal
     end
   end
 end
